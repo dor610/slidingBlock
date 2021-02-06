@@ -1,0 +1,189 @@
+.welcome{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 4;
+    padding-top: 45vh;
+    visibility: visible;
+    opacity: 1;
+    font-size: 3vmin;
+}
+
+.play-btn, .score-btn, .about-btn{
+    outline: none;
+    border: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vmin;
+    height: 6vh;
+    margin-top: 5vh;
+    font-size: 3vmin;
+    background-color: transparent;
+    box-shadow: 0 0 5px gray;
+    transition: 0.1s ease-in;
+}
+
+.loading-background{
+    position: absolute;
+    visibility: visible;
+    opacity: 1;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    background-color: white;
+    transition: 1s ease-in;
+}
+
+.logo{
+    position: absolute;
+    height: 20vh;
+    width: 20vh;
+    top: 10vh;
+    left: calc(50vw - 10vh);
+    z-index: 10;
+    transition: 1s ease-in;
+}
+
+.welcome-label{
+    position: absolute;
+    width: 100vw;
+    top: 35vh;
+    z-index: 7;
+    text-align: center;
+    font-size: 8vmin;
+    color: gray;
+}
+
+
+.loading-logo{
+    top: 35vh;
+    left: calc(50vw - 15vh);
+    height: 30vh;
+    width: 30vh;
+}
+
+.small-logo{
+    height: 10vh;
+    width: 10vh;
+    left: 2.5vmin;
+    top: 2.5vmin;
+}
+
+.getting-user-name{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 6;
+    top: 0;
+    left: 0;
+    background-color: white;
+    transition: 0.5s ease-in;
+}
+
+.user-name-label{
+    position: absolute;
+    top: 51vh;
+    width: 100vw;
+    text-align: center;
+    color: gray;
+    transition: 0.2s ease-in;
+}
+.user-name{
+    position: relative;
+    width: 50vmin;
+    height: 50px;
+    border: none;
+    box-shadow: 0 0 5px gray;
+    background-color: transparent;
+    top: 50vh;
+    left: calc(50vw - 25vmin);
+    outline: none;
+    font-size: 3vmin;
+    text-align: center;
+    transition: 0.5s ease-in;
+}
+
+.user-name-btn{
+    position: relative;
+    width: 40vmin;
+    height: 50px;
+    background-color: transparent;
+    top: 55vh;
+    line-height: 50px;
+    text-align: center;
+    left: calc(50vw - 20vmin);
+    box-shadow: 0 0 5px gray;
+    transition: 0.1s ease-in;
+}
+
+@keyframes scale{
+    0%{
+        transform: scale(1,1);
+    }
+    20%, 30%{
+        transform: scale(1.1,1.1);
+    }
+    60%, 100%{
+        transform: scale(0,0);
+    }
+}
+
+.scale-ani{
+    transform: scale(0,0);
+    animation: scale 1.5s;
+}
+
+.win-logo{
+    top: calc(50vh + 20vmin);
+    left: calc(50vw - 5vh);
+    cursor: pointer;
+    transition: 0.5s linear;
+}
+
+.win-logo:hover{
+    transform: scale(1.1,1.1);
+}
+
+.pink-color{
+    color: #ff7bac;
+    box-shadow: 0 0 5px #ff7bac;
+    transform: scale(1.1,1.1);
+}
+
+.blue-color{
+    color: skyblue;
+    box-shadow: 0 0 5px skyblue;
+    transform: scale(1.1,1.1);
+}
+
+.orange-color{
+    color: #fbb03b;
+    box-shadow: 0 0 5px #fbb03b;
+    transform: scale(1.1,1.1);
+}
+
+.gray-color{
+    color: black;
+    box-shadow: 0 0 5px gray;
+    transform: scale(1,1);
+}
+
+.hide-v{
+    visibility: hidden;
+}
+
+.hide-o{
+    opacity: 0;
+}
+
+.hide-d{
+    display: none;
+}
+
+.move-top{
+    top: 45vh;
+}
