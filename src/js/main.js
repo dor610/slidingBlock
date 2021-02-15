@@ -65,10 +65,8 @@ function create(){
     },3000);
     setTimeout(() =>{
         timeCount();
-        moves.classList.remove('hide-o');
-        moves.classList.remove('hide-v');
-        clock.classList.remove('hide-v');
-        clock.classList.remove('hide-o');
+        moves.classList.remove('hide-o', 'hide-v');
+        clock.classList.remove('hide-o', 'hide-v');
         check();
     }, 6300);
 
@@ -88,14 +86,12 @@ function create(){
 }
 
 function showWinBanner(){
-    winBanner.classList.remove('hide-v');
-    winBanner.classList.remove('hide-o');
+    winBanner.classList.remove('hide-o', 'hide-v');
     winAnimation.playSegments([0, 120],true);
 }
 
 function hideWinBanner() {
-    winBanner.classList.add('hide-v');
-    winBanner.classList.add('hide-o');
+    winBanner.classList.add('hide-o', 'hide-v');
 }
 
 function clickHandle(){

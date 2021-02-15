@@ -94,8 +94,7 @@ const setLeaderboard = () =>{
 }
 
 const showLeaderboard = () =>{
-    leaderboard.classList.remove('hide-v');
-    leaderboard.classList.remove('hide-o');
+    leaderboard.classList.remove('hide-o', 'hide-v');
 
     setTimeout(() =>{
         showLeaderboardContent();
@@ -103,8 +102,7 @@ const showLeaderboard = () =>{
 }
 
 const hideLeaderboard = () =>{
-    leaderboard.classList.add('hide-o');
-    leaderboard.classList.add('hide-v');
+    leaderboard.classList.add('hide-o', 'hide-v');
     hideLeaderboardContent();
 }
 
@@ -116,6 +114,7 @@ const backToHomeFromLeaderboard = () =>{
         hideLeaderboard();
     }, 1000);
     setTimeout(() => {
+        welcomeSection.classList.remove('hide-v', 'hide-o');
         hideLoading();
         logo.style.cursor = 'default';
         logo.title = '';
@@ -124,6 +123,7 @@ const backToHomeFromLeaderboard = () =>{
 
 scorebtn.addEventListener('click', () =>{
     showLoading();
+    welcomeSection.classList.add('hide-v', 'hide-o');
     setTimeout(() => {
         hideLoading(true);
     }, 1000);

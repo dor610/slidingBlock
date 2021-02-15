@@ -64,11 +64,12 @@
     left: calc(50vw - 15vh);
     height: 30vh;
     width: 30vh;
+    transform: scale(1,1);
 }
 
 .small-logo{
-    height: 10vh;
-    width: 10vh;
+    height: 10vmin;
+    width: 10vmin;
     left: 2.5vmin;
     top: 2.5vmin;
 }
@@ -120,12 +121,16 @@
     transition: 0.1s ease-in;
 }
 
+.no-transition{
+    transition: none;
+}
+
 @keyframes scale{
     0%{
         transform: scale(1,1);
     }
     20%, 30%{
-        transform: scale(1.1,1.1);
+        transform: scale(1.2,1.2);
     }
     60%, 100%{
         transform: scale(0,0);

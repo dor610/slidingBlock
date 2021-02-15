@@ -12,15 +12,19 @@ const loadingBackground = document.getElementById('loading-background');
 
 function getUserName(){
     userNameValue = userName.value;
-    showLoading();
-    setTimeout(() =>{
-        gettingUserName.classList.add('hide-v');
-        gettingUserName.classList.add('hide-o');
-        welcomeLabel.innerHTML = welcomeLabel.innerHTML + ', '+userNameValue;
-    },1000);
-    setTimeout(() =>{
-        hideLoading();
-    },1500);
+    if(userNameValue){
+        showLoading();
+        playBtn.classList.remove('hide-o', 'hide-v');
+        scorebtn.classList.remove('hide-o', 'hide-v');
+        aboutBtn.classList.remove('hide-o', 'hide-v');
+        setTimeout(() =>{
+            gettingUserName.classList.add('hide-o', 'hide-v');
+            welcomeLabel.innerHTML = welcomeLabel.innerHTML + ', '+userNameValue;
+        },1000);
+        setTimeout(() =>{
+            hideLoading();
+        },1500);
+    }
 }
 
 function mouseoverHandle(){
@@ -54,6 +58,8 @@ scorebtn.addEventListener('mouseleave', mouseleaveHandle);
 
 aboutBtn.addEventListener('mouseover', mouseoverHandle);
 aboutBtn.addEventListener('mouseleave', mouseleaveHandle);
+aboutBtn.addEventListener('click', openAboutSection);
+
 
 userNameBtn.addEventListener('mouseover', mouseoverHandle);
 userNameBtn.addEventListener('mouseleave', mouseleaveHandle);
@@ -75,23 +81,19 @@ userName.addEventListener('focusout', () =>{
 
 const hideLoading = (b) =>{
     setTimeout(() => {
-        loadingBackground.classList.add('hide-v');
-        loadingBackground.classList.add('hide-o');
+        loadingBackground.classList.add('hide-v', 'hide-o');
     }, 2000);
     setTimeout(() => {
         logo.classList.remove('loading-logo');
         if(b)
-             logo.classList.add('small-logo');
+            logo.classList.add('small-logo');
     }, 1000);
 }
 
 const showLoading = () =>{
-    loadingBackground.classList.remove('hide-o');
-    loadingBackground.classList.remove('hide-v');
-
+    loadingBackground.classList.remove('hide-o', 'hide-v');
     logo.classList.add('loading-logo');
-    logo.classList.remove('small-logo');
-    logo.classList.remove('win-logo');
+    logo.classList.remove('small-logo', 'win-logo');  
 }
 
 const playGame = () =>{
@@ -109,10 +111,8 @@ const backToHomeFromGame = () =>{
     clock.innerHTML = '00:00';
     moves.innerHTML = '0';
     blocks = [];
-    clock.classList.add('hide-o');
-    clock.classList.add('hide-v');
-    moves.classList.add('hide-o');
-    moves.classList.add('hide-v');
+    clock.classList.add('hide-o', 'hide-v');
+    moves.classList.add('hide-o', 'hide-v');
     hideWinBanner();
     setTimeout(() => {
         clock.classList.remove('win-clock');
@@ -122,8 +122,7 @@ const backToHomeFromGame = () =>{
 
     showLoading();
     setTimeout(() => {
-        welcomeSection.classList.remove('hide-o');
-        welcomeSection.classList.remove('hide-v');  
+        welcomeSection.classList.remove('hide-o', 'hide-v');
         container.classList.remove('hide-o');
     }, 1000);
 
@@ -134,6 +133,5 @@ const backToHomeFromGame = () =>{
 
 playBtn.addEventListener('click', () =>{
     playGame();
-    welcomeSection.classList.add('hide-v');
-    welcomeSection.classList.add('hide-o');
+    welcomeSection.classList.add('hide-o', 'hide-v');
 });

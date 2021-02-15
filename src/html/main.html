@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/about.css">
 </head>
 <body>
-    <div id="logo" class="logo small-logo"></div>
+    <div id="logo" class="logo loading-logo"></div>
     <div id="loading-background" class="loading-background"></div>
     <section id="welcome" class="welcome">
         <div id="welcome-label" class="welcome-label">Welcome</div>
@@ -18,9 +18,9 @@
             <input id="user-name" class="user-name" type="text" placeholder=" ">
             <div id="user-name-btn" class="user-name-btn">Enter</div>
         </div>
-        <button id="play-btn" class="play-btn" >Play</button>
-        <button id="score-btn" class="score-btn" >Leaderboard</button>
-        <button id="about-btn" class="about-btn">About</button>
+        <button id="play-btn" class="play-btn hide-o hide-v" >Play</button>
+        <button id="score-btn" class="score-btn hide-o hide-v" >Leaderboard</button>
+        <button id="about-btn" class="about-btn hide-o hide-v">About</button>
     </section>
     <section id="game" class="game">
         <div id="dashboard" class="dashboard">
@@ -40,22 +40,26 @@
         </div>
         <div id="lb-content" class="lb-content"></div>
     </section>
-    <section id="about" class="about">
-        <div id="about-sbp-title" class="about-sbp-title">About Sliding Block Puzzle</div>
-        <div id="about-sbp" class="about-tg">
-            <div id="about-sbp-ani" class="about-sbp-ani">
-                
+    <section id="about" class="about hide-o hide-v">
+        <div id="about-spb-container" class="about-abp-container">
+            <div id="about-sbp-ani" class="about-sbp-ani"></div>
+            <div id="about-sbp" class="about-sbp">
+                <div id="about-sbp-title" class="about-sbp-title">About Sliding Block Puzzle</div>
+                <div id="about-sbp-content" class="about-sbp-content">A sliding puzzle, sliding block puzzle, or sliding tile puzzle is a combination puzzle that challenges a player to slide (frequently flat) pieces along certain routes (usually on a board) to establish a certain end-configuration. The pieces to be moved may consist of simple shapes, or they may be imprinted with colours, patterns, sections of a larger picture, numbers, or letters. <br/>
+                    The oldest type of sliding puzzle is the fifteen puzzle, invented by Noyes Chapman in 1880; Sam Loyd is often wrongly credited with making sliding puzzles popular based on his false claim that he invented the fifteen puzzle.
+                </div>
             </div>
-            <div></div>
         </div>
-        <div id="about-tg-title" class="about-tg-title">About This Game</div>
-        <div id="about-tg" class="about-tg">
-            <div></div>
-            <div></div>
-        </div>
-        <div id="about-a-title" class="about-a-title">About Khang</div>
-        <div id="about-a" class="about-a">
-            <div></div>
+        <div id="about-tg-container" class="about-tg-container">
+            <div id="about-tg" class="about-tg">
+                <div id="about-tg-title" class="about-tg-title">About This Game</div>
+                <div id="about-tg-content" class="about-tg-content">
+                    This game is a type of sliding block puzzle game and it is called fifteen puzzle.
+                    The only thing you need to do to win in this game is moving each block until those blocks were sorted. <br/>
+                    This game was made by using HTML, CSS and Javascript for core functions with a little bit of Lottie for animation. That is all the technology that were used in the front-end side.<br/>
+                    In the back-end side, Java Spring Boot was chosen to build the API that is used to process user's score and save these infomation to database, which is managed in MongoDB Atlas.
+                </div>
+            </div>
             <div></div>
         </div>
     </section>
@@ -67,10 +71,10 @@
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js" integrity="sha512-BB7rb8ZBAxtdJdB7nwDijJH9NC+648xSzviK9Itm+5APTtdpgKz1+82bDl4znz/FBhd0R7pJ/gQtomnMpZYzRw==" crossorigin="anonymous"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/welcome.js"></script>
     <script src="../js/about.js"></script>
-    <script src="../js/leaderboard.js"></script>
     <script src="../js/animation.js"></script>
+    <script src="../js/welcome.js"></script>    
+    <script src="../js/leaderboard.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>

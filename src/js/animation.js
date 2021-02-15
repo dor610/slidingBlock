@@ -27,20 +27,3 @@ let aboutSBPAnimation = lottie.loadAnimation({
     path: '../js/aboutSBP.json'
 });
 
-let p = true;
-setTimeout(() =>{
-    aboutSBPAnimation.playSegments([0, 1770],true);
-    let play = setInterval(() => {
-        if(p){
-            console.log("1");
-            p = false;
-            aboutSBPAnimation.playSegments([1770,0], true);
-        }
-        else {
-            console.log('2');
-            p = true;
-            aboutSBPAnimation.playSegments([0, 1770],true);
-        }
-    }, 59000);
-}, 2000);
-
