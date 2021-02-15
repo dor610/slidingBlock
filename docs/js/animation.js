@@ -4,7 +4,7 @@ let logoAnimation = lottie.loadAnimation({
     renderer: 'svg',
     loop: true,
     autoplay: true,
-    path: '../js/animatedLogo.json'
+    path: 'js/animatedLogo.json'
 });
 
 const winAnimationContainer = document.getElementById('win-animation');
@@ -14,7 +14,7 @@ let winAnimation = lottie.loadAnimation({
     renderer: 'svg',
     loop: false,
     autoplay: false,
-    path: '../js/winAnimation.json'
+    path: 'js/winAnimation.json'
 });
 
 const aboutSBPAni = document.getElementById('about-sbp-ani');
@@ -24,6 +24,6 @@ let aboutSBPAnimation = lottie.loadAnimation({
     renderer: 'svg',
     loop: false,
     autoplay: false,
-    path: '../js/aboutSBP.json'
+    path: 'js/aboutSBP.json'
 });
 
