@@ -14,9 +14,9 @@ function getUserName(){
     userNameValue = userName.value;
     if(userNameValue){
         showLoading();
-        playBtn.classList.remove('hide-o', 'hide-v');
-        scorebtn.classList.remove('hide-o', 'hide-v');
-        aboutBtn.classList.remove('hide-o', 'hide-v');
+        playBtn.classList.remove('hide-o', 'hide-v', 'hide-d');
+        scorebtn.classList.remove('hide-o', 'hide-v', 'hide-d');
+        aboutBtn.classList.remove('hide-o', 'hide-v', 'hide-d');
         setTimeout(() =>{
             gettingUserName.classList.add('hide-o', 'hide-v');
             welcomeLabel.innerHTML = welcomeLabel.innerHTML + ', '+userNameValue;
