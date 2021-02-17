@@ -2,7 +2,7 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background-color: white;
+   /* background-color: var(--backgroundColor);*/
     z-index: 4;
     padding-top: 45vh;
     visibility: visible;
@@ -20,8 +20,9 @@
     height: 6vh;
     margin-top: 5vh;
     font-size: 3vmin;
+    color: var(--textColor);
     background-color: transparent;
-    box-shadow: 0 0 5px gray;
+    box-shadow: 0 0 5px var(--boxShadowColor);
     transition: 0.1s ease-in;
 }
 
@@ -34,7 +35,7 @@
     z-index: 9;
     top: 0;
     left: 0;
-    background-color: white;
+    background-color: var(--backgroundColor);
     transition: 1s ease-in;
 }
 
@@ -55,7 +56,7 @@
     z-index: 7;
     text-align: center;
     font-size: 8vmin;
-    color: gray;
+    color: var(--textColor);
 }
 
 
@@ -81,7 +82,7 @@
     z-index: 6;
     top: 0;
     left: 0;
-    background-color: white;
+    background-color: var(--backgroundColor);
     transition: 0.5s ease-in;
 }
 
@@ -90,15 +91,18 @@
     top: 51vh;
     width: 100vw;
     text-align: center;
-    color: gray;
+    color: var(--textColor);
     transition: 0.2s ease-in;
 }
+
+
 .user-name{
     position: relative;
     width: 50vmin;
     height: 50px;
     border: none;
-    box-shadow: 0 0 5px gray;
+    box-shadow: 0 0 5px var(--boxShadowColor);
+    color: var(--textColor);
     background-color: transparent;
     top: 50vh;
     left: calc(50vw - 25vmin);
@@ -117,7 +121,8 @@
     line-height: 50px;
     text-align: center;
     left: calc(50vw - 20vmin);
-    box-shadow: 0 0 5px gray;
+    color: var(--textColor);
+    box-shadow: 0 0 5px var(--boxShadowColor);
     transition: 0.1s ease-in;
 }
 
@@ -154,27 +159,21 @@
 }
 
 .pink-color{
-    color: #ff7bac;
-    box-shadow: 0 0 5px #ff7bac;
+    color: var(--pink);
+    box-shadow: 0 0 10px var(--pink);
     transform: scale(1.1,1.1);
 }
 
 .blue-color{
-    color: skyblue;
-    box-shadow: 0 0 5px skyblue;
+    color: var(--blue);
+    box-shadow: 0 0 10px var(--blue);
     transform: scale(1.1,1.1);
 }
 
 .orange-color{
-    color: #fbb03b;
-    box-shadow: 0 0 5px #fbb03b;
+    color: var(--orange);
+    box-shadow: 0 0 10px var(--orange);
     transform: scale(1.1,1.1);
-}
-
-.gray-color{
-    color: black;
-    box-shadow: 0 0 5px gray;
-    transform: scale(1,1);
 }
 
 .hide-v{

@@ -4,17 +4,44 @@
     box-sizing: border-box;
 }
 
+:root{
+    
+    --pink: #ff7bac;
+    --orange: #fbb03b;
+    --blue: #87ceeb;
+    --backgroundColor: white;
+    --textColor: dimgrey;
+    --boxShadowColor: grey;
+    --lbFirstColor: rgba(251,176,59,0.3);
+    --lbSecondColor: rgb(255, 123, 172,0.3);
+    --lbThirdColor: rgba(137, 207, 235,0.3);
+    --lbBackgroundColor: rgba(255,255,255,0.8);
+    --winBannerBackground: white;
+}
+
 body{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
     position: relative;
+    background-color: var(--backgroundColor);
+    transition: 0.5s ease-in;
 }
 
 section{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+}
+
+.theme-btn{
+    position: absolute;
+    z-index: 8;
+    height: 10vmin;
+    width: 10vmin;
+    right: 2.5vmin;
+    top: 2.5vmin;
+    cursor: pointer;
 }
 
 .dashboard {
@@ -30,8 +57,8 @@ section{
     height: 10vmin;
     position: absolute;    
     top: 2.5vmin;
-    color: gray;
-    box-shadow: 0 0 5px grey;
+    color: var(--textColor);
+    box-shadow: 0 0 5px var(--boxShadowColor);
     border-radius: 1vw;
     text-align: center;
     font-size: 5vmin;
@@ -56,14 +83,13 @@ section{
 .container{
     width: 80vmin;
     height: 80vmin;
-    background-color: white;
+    /*background-color: var(--backgroundColor);*/
     position: relative;
     margin-left: auto;
     margin-right: auto;
     margin-top: 15vmin;
     z-index: 1;
     -webkit-user-drag: none;
-    -webkit-user-select: none;
 }
 
 .block{
@@ -71,16 +97,15 @@ section{
     height: 19vmin;
     position: absolute;
     margin: 1vmin;
-    box-shadow: 0 0 5px gray;
+    box-shadow: 0 0 5px var(--boxShadowColor);
     border-radius: 3%;
     font-size: 5vmin;
     text-align: center;
     padding-top: 9%;
     opacity: 0;
-    color: dimgrey;
+    color: var(--textColor);
     transition: 0.3s ease;
     -webkit-user-drag: none;
-    -webkit-user-select: none;
 }
 
 .block-1, .block-5, .block-9, .block-13{
@@ -133,7 +158,6 @@ section{
     left: 0;
     z-index: 2;
     -webkit-user-drag: none;
-    -webkit-user-select: none;
 }
 
 
@@ -161,10 +185,16 @@ section{
     left: -3px;
     top: -3px;
     height: calc(25vmin + 6px);
-    background-image: linear-gradient( to left,#ff7bac, skyblue, #fbb03b, #ff7bac, skyblue, #fbb03b, #ff7bac, skyblue, #fbb03b, #ff7bac);
+    background-image: linear-gradient( to left, var(--pink), var(--blue), var(--orange), var(--pink), var(--blue), var(--orange), var(--pink), var(--blue), var(--orange), var(--pink));
     background-size: 600%;
     border-radius: 3vmin;
+    filter: blur(5px);
     animation: background-changing 80s infinite;
+}
+
+.you-win-svg {
+    fill: var(--winBannerBackground);
+    transition: 0.5s ease-in;
 }
 
 .win-animation{
@@ -183,9 +213,9 @@ section{
     left: 0;
     z-index: 7;
     overflow-y: scroll;
-    background-color: white; 
+    background-color: var(--backgroundColor); 
     text-align: center;
-    color: dimgray
+    color: var(--textColor);
 }
 
 .leaderboard::-webkit-scrollbar{
@@ -197,8 +227,8 @@ section{
     height: 20vh;
     top: 0;
     z-index: 1;
-    background-color: rgba(255,255,255,0.8);
-    box-shadow: 0 0 5px gray;
+    background-color: var(--lbBackgroundColor);
+    box-shadow: 0 0 5px var(--boxShadowColor);
     transition: 0.5s ease-in;
 }
 .lb-title p{
@@ -244,19 +274,19 @@ section{
 }
 
 .lb-content > div:first-child{
-    background-color: rgba(251,176,59,0.3);
+    background-color: var(--lbFirstColor);
     height: 10vh;
     line-height: 10vh;
 }
 
 .lb-content > div:nth-child(2){
-    background-color: rgb(255, 123, 172,0.3);
+    background-color: var(--lbSecondColor);
     height: 9vh;
     line-height: 9vh;
 }
 
 .lb-content > div:nth-child(3){
-    background-color: rgba(137, 207, 235,0.3);
+    background-color: var(--lbThirdColor);
     height: 8vh;
     line-height: 8vh;
 }
@@ -267,18 +297,18 @@ section{
 }
 
 .pink-color-block{
-    color: #ff7bac;
-    box-shadow: 0 0 5px #ff7bac;
+    color: var(--pink);
+    box-shadow: 0 0 5px var(--pink);
 }
 
 .blue-color-block{
-    color: skyblue;
-    box-shadow: 0 0 5px skyblue;
+    color: var(--blue);
+    box-shadow: 0 0 5px var(--blue);
 }
 
 .orange-color-block{
-    color: #fbb03b;
-    box-shadow: 0 0 5px #fbb03b;
+    color: var(--orange);
+    box-shadow: 0 0 5px var(--orange);
 }
 
 .hide-d{
@@ -307,6 +337,14 @@ section{
     .dashboard{
         padding-left: 10vmin;
         padding-right: 10vmin;
+    }
+
+    .clock, .moves{
+        top: calc(50vh - 60vmin)
+    }
+
+    .container{
+        margin-top: calc(50vh - 40vmin);
     }
 }
 

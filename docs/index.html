@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,21 +10,23 @@
     <link rel="stylesheet" href="css/about.css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
     <div id="logo" class="logo loading-logo"></div>
+    <div id="theme-btn" class="theme-btn"></div>
     <div id="loading-background" class="loading-background"></div>
     <section id="welcome" class="welcome">
         <div id="welcome-label" class="welcome-label">Welcome</div>
         <div id="getting-user-name" class="getting-user-name">
             <label id="user-name-label" class="user-name-label">Enter Your Name</label>
-            <input id="user-name" class="user-name" type="text" placeholder=" ">
+            <input id="user-name" class="user-name" type="text" autocomplete="off" placeholder=" ">
             <div id="user-name-btn" class="user-name-btn">Enter</div>
         </div>
-        <button id="play-btn" class="play-btn hide-o hide-v hide-d" >Play</button>
-        <button id="score-btn" class="score-btn hide-o hide-v hide-d" >Leaderboard</button>
+        <button id="play-btn" class="play-btn hide-o hide-v hide-d">Play</button>
+        <button id="score-btn" class="score-btn hide-o hide-v hide-d">Leaderboard</button>
         <button id="about-btn" class="about-btn hide-o hide-v hide-d">About</button>
     </section>
-    <section id="game" class="game">
+    <section id="game" class="game hide-o hide-v">
         <div id="dashboard" class="dashboard">
             <div id="clock" class="clock hide-o hide-v" title="Time">00:00</div>
             <div id="moves" class="moves hide-o hide-v" title="Moves">0</div>
@@ -47,10 +50,14 @@
             <div id="about-sbp" class="about-sbp">
                 <div id="about-sbp-title" class="about-sbp-title">About Sliding Block Puzzle</div>
                 <div id="about-sbp-content" class="about-sbp-content">
-                    A sliding puzzle, sliding block puzzle, or sliding tile puzzle is a combination puzzle that challenges a player to slide (frequently flat) pieces along certain routes (usually on a board) to establish a certain end-configuration. 
-                    The pieces to be moved may consist of simple shapes, or they may be imprinted with colours, patterns, sections of a larger picture, numbers, or letters. <br/>
-                    The oldest type of sliding puzzle is the fifteen puzzle, invented by Noyes Chapman in 1880; 
-                    Sam Loyd is often wrongly credited with making sliding puzzles popular based on his false claim that he invented the fifteen puzzle.
+                    A sliding puzzle, sliding block puzzle, or sliding tile puzzle is a combination puzzle that
+                    challenges a player to slide (frequently flat) pieces along certain routes (usually on a board) to
+                    establish a certain end-configuration.
+                    The pieces to be moved may consist of simple shapes, or they may be imprinted with colours,
+                    patterns, sections of a larger picture, numbers, or letters. <br />
+                    The oldest type of sliding puzzle is the fifteen puzzle, invented by Noyes Chapman in 1880;
+                    Sam Loyd is often wrongly credited with making sliding puzzles popular based on his false claim that
+                    he invented the fifteen puzzle.
                 </div>
             </div>
         </div>
@@ -59,10 +66,13 @@
                 <div id="about-tg-title" class="about-tg-title">About This Game</div>
                 <div id="about-tg-content" class="about-tg-content">
                     This game is a type of sliding block puzzle game, and it is called 15 puzzle.
-                    The only thing, you need to do to win this game is moving each block until those blocks were sorted. <br/>
-                    This game was made by using HTML, CSS and JavaScript for core functions with a bit of Lottie for the animation. 
-                    That is all the technology that was used on the front-end side. <br/>
-                    On the back-end side, Java Spring Boot was chosen to build the API that is used to process the user's score and save this information to the database, which is managed in MongoDB Atlas.
+                    The only thing, you need to do to win this game is moving each block until those blocks were sorted.
+                    <br />
+                    This game was made by using HTML, CSS and JavaScript for core functions with a bit of Lottie for the
+                    animation.
+                    That is all the technology that was used on the front-end side. <br />
+                    On the back-end side, Java Spring Boot was chosen to build the API that is used to process the
+                    user's score and save this information to the database, which is managed in MongoDB Atlas.
                 </div>
             </div>
             <div></div>
@@ -71,15 +81,24 @@
     <section id="win-banner" class="win-banner hide-o hide-v">
         <div id="win-animation" class="win-animation"></div>
         <div id="you-win" class="you-win">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1000"><defs><style>.cls-1{fill:#fff;}</style></defs><g id="Layer_1" data-name="Layer 1"><path class="cls-1" d="M1393,993.25c-52,0-74.5,48-74.5,94,0,53,30.5,93,73.5,93,42,0,73.5-39.5,73.5-94C1465.51,1045.25,1445,993.25,1393,993.25ZM2801.24,561H1038.76A118.76,118.76,0,0,0,920,679.76v762.48A118.76,118.76,0,0,0,1038.76,1561H2801.24A118.76,118.76,0,0,0,2920,1442.24V679.76A118.76,118.76,0,0,0,2801.24,561ZM2784,870.75l-7,240h-34l-7-240Zm-1604.48,337h-44v-143l-106.5-194h49.5l47.5,93c13,25.5,23,46,33.5,69.5h1c9.5-22,21-44,34-69.5l48.5-93h49.5l-113,193.5Zm210.5,5.5c-65.5,0-116-48-116-124.5,0-81,53-128.5,120-128.5,69.5,0,116.5,50.5,116.5,124.5C1510.51,1174.25,1448.51,1213.25,1390,1213.25Zm341.49-5.5-2.5-39.5h-1c-11.5,19.5-37,45-80,45-38,0-83.5-21-83.5-106V965.75h44v134c0,46,14,77,54,77,29.5,0,50-20.5,58-40a64.35,64.35,0,0,0,4-22.5V965.75h44v176c0,25,.5,47,2,66Zm485,0H2171l-42.5-175.5c-10.5-43-17.5-76-22-110h-1c-6,33.5-13.5,66.5-26,110l-48,175.5H1986l-85.5-337h46l40,170.5c10,42,19,84,25,116.5h1c5.5-33.5,16-73.5,27.5-117l45-170h45.5l41,171c9.5,40,18.5,80,23.5,115.5h1c7-37,16.5-74.5,27-116.5l44.5-170H2312Zm172,0h-44v-242h44Zm-23-283c-15.5,0-26.5-12-26.5-27,0-15.5,11.5-27.5,27.5-27.5,16.5,0,27,12,27,27.5C2394,912.75,2383,924.75,2365.5,924.75Zm302,283h-44v-139.5c0-39-14.5-71.5-56-71.5-29,0-51.5,20.5-59,45-2,5.5-3,13-3,20.5v145.5h-44v-176.5c0-25-.5-45.5-2-65.5h39l2.5,40h1c12-23,40-45.5,80-45.5,33.5,0,85.5,20,85.5,103Zm92.49,5.5c-17.5,0-29.5-13.5-29.5-31,0-18,12.5-31,29.5-31,18,0,29.5,13,29.5,31C2789.49,1199.75,2778,1213.25,2760,1213.25Z" transform="translate(-920 -561)"/></g></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1000">
+                <g id="Layer_1" data-name="Layer 1">
+                    <path class="you-win-svg"
+                        d="M1393,993.25c-52,0-74.5,48-74.5,94,0,53,30.5,93,73.5,93,42,0,73.5-39.5,73.5-94C1465.51,1045.25,1445,993.25,1393,993.25ZM2801.24,561H1038.76A118.76,118.76,0,0,0,920,679.76v762.48A118.76,118.76,0,0,0,1038.76,1561H2801.24A118.76,118.76,0,0,0,2920,1442.24V679.76A118.76,118.76,0,0,0,2801.24,561ZM2784,870.75l-7,240h-34l-7-240Zm-1604.48,337h-44v-143l-106.5-194h49.5l47.5,93c13,25.5,23,46,33.5,69.5h1c9.5-22,21-44,34-69.5l48.5-93h49.5l-113,193.5Zm210.5,5.5c-65.5,0-116-48-116-124.5,0-81,53-128.5,120-128.5,69.5,0,116.5,50.5,116.5,124.5C1510.51,1174.25,1448.51,1213.25,1390,1213.25Zm341.49-5.5-2.5-39.5h-1c-11.5,19.5-37,45-80,45-38,0-83.5-21-83.5-106V965.75h44v134c0,46,14,77,54,77,29.5,0,50-20.5,58-40a64.35,64.35,0,0,0,4-22.5V965.75h44v176c0,25,.5,47,2,66Zm485,0H2171l-42.5-175.5c-10.5-43-17.5-76-22-110h-1c-6,33.5-13.5,66.5-26,110l-48,175.5H1986l-85.5-337h46l40,170.5c10,42,19,84,25,116.5h1c5.5-33.5,16-73.5,27.5-117l45-170h45.5l41,171c9.5,40,18.5,80,23.5,115.5h1c7-37,16.5-74.5,27-116.5l44.5-170H2312Zm172,0h-44v-242h44Zm-23-283c-15.5,0-26.5-12-26.5-27,0-15.5,11.5-27.5,27.5-27.5,16.5,0,27,12,27,27.5C2394,912.75,2383,924.75,2365.5,924.75Zm302,283h-44v-139.5c0-39-14.5-71.5-56-71.5-29,0-51.5,20.5-59,45-2,5.5-3,13-3,20.5v145.5h-44v-176.5c0-25-.5-45.5-2-65.5h39l2.5,40h1c12-23,40-45.5,80-45.5,33.5,0,85.5,20,85.5,103Zm92.49,5.5c-17.5,0-29.5-13.5-29.5-31,0-18,12.5-31,29.5-31,18,0,29.5,13,29.5,31C2789.49,1199.75,2778,1213.25,2760,1213.25Z"
+                        transform="translate(-920 -561)" />
+                </g>
+            </svg>
         </div>
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js" integrity="sha512-BB7rb8ZBAxtdJdB7nwDijJH9NC+648xSzviK9Itm+5APTtdpgKz1+82bDl4znz/FBhd0R7pJ/gQtomnMpZYzRw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"
+        integrity="sha512-BB7rb8ZBAxtdJdB7nwDijJH9NC+648xSzviK9Itm+5APTtdpgKz1+82bDl4znz/FBhd0R7pJ/gQtomnMpZYzRw=="
+        crossorigin="anonymous"></script>
     <script src="js/about.js"></script>
     <script src="js/animation.js"></script>
-    <script src="js/welcome.js"></script>    
+    <script src="js/welcome.js"></script>
     <script src="js/leaderboard.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

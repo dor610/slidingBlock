@@ -114,6 +114,7 @@ window.addEventListener('touchend', function(event) {
       logo.removeEventListener('click', backToHomeFromAbout);
       logo.style.cursor = 'default';
       showLoading();
+      about.classList.remove('show-tg');
       about.classList.add('hide-v', 'hide-o');
       touchEnd = null;
       touchStart = null;

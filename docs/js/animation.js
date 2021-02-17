@@ -27,3 +27,12 @@ let aboutSBPAnimation = lottie.loadAnimation({
     path: 'js/aboutSBP.json'
 });
 
+const themeBtn = document.getElementById('theme-btn');
+
+let themeBtnAni = lottie.loadAnimation({
+    container: themeBtn,
+    renderer: 'svg',
+    loop: false,
+    autoplay: false,
+    path: 'js/themeBtn.json'
+});

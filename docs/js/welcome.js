@@ -8,6 +8,7 @@ const userNameLabel = document.getElementById('user-name-label');
 const welcomeSection = document.getElementById('welcome');
 const welcomeLabel = document.getElementById('welcome-label');
 const logo = document.getElementById('logo');
+const game = document.getElementById('game');
 const loadingBackground = document.getElementById('loading-background');
 
 function getUserName(){
@@ -98,6 +99,8 @@ const showLoading = () =>{
 
 const playGame = () =>{
     showLoading();
+    console.log('hihihih');
+    game.classList.remove('hide-v','hide-o');
     create();
 }
 
@@ -113,6 +116,7 @@ const backToHomeFromGame = () =>{
     blocks = [];
     clock.classList.add('hide-o', 'hide-v');
     moves.classList.add('hide-o', 'hide-v');
+    game.classList.add('hide-v', 'hide-o');
     hideWinBanner();
     setTimeout(() => {
         clock.classList.remove('win-clock');

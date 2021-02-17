@@ -8,6 +8,29 @@ let winBanner = document.getElementById('win-banner');
 const container = document.getElementById('container');
 const clock = document.getElementById('clock');
 const moves = document.getElementById('moves');
+const root = document.querySelector(':root');
+
+const darkTheme = {
+    backgroundColor: '#121616',
+    textColor: '#dad6d6',
+    boxShadowColor: 'white',
+    lbBackgroundColor: 'rgba(18, 22, 22,0.8)',
+    winBannerBackground: '#1f2222',
+    pink:'rgb(255, 154, 191)',
+    orange: 'rgb(241, 205, 146)',
+    blue: 'rgb(172, 229, 252)'
+}
+
+const lightTheme = {
+    backgroundColor: 'white',
+    textColor: 'dimgrey',
+    boxShadowColor: 'grey',
+    lbBackgroundColor: 'rgba(255,255,255,0.8)',
+    winBannerBackground: 'white',
+    pink: '#ff7bac',
+    orange: '#fbb03b',
+    blue: 'skyblue'
+}
 
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
@@ -185,9 +208,50 @@ function check(){
     return isWin;
 }
 
+const showDarkTheme = () =>{
+    themeBtn.removeEventListener('click', showDarkTheme);
+    themeBtn.addEventListener('click', hideDarkTheme);
+    themeBtnAni.playSegments([25,5], true);
+    root.style.setProperty('--backgroundColor', darkTheme.backgroundColor);
+    root.style.setProperty('--textColor', darkTheme.textColor);
+    root.style.setProperty('--boxShadowColor', darkTheme.boxShadowColor);
+    root.style.setProperty('--lbBackgroundColor', darkTheme.lbBackgroundColor);
+    root.style.setProperty('--winBannerBackground', darkTheme.winBannerBackground);
+    root.style.setProperty('--pink', darkTheme.pink);
+    root.style.setProperty('--orange', darkTheme.orange);
+    root.style.setProperty('--blue', darkTheme.blue);
+    let buttons = document.getElementsByTagName("BUTTON");
+    for(let index = 0; index < buttons.length; index++){
+        buttons[index].style.borderRadius = '10px';
+    }
+    userNameBtn.style.borderRadius = '10px';
+}
+
+const hideDarkTheme = () =>{
+    themeBtn.removeEventListener('click', hideDarkTheme);
+    themeBtn.addEventListener('click', showDarkTheme);
+    themeBtnAni.playSegments([5,25], true);
+    root.style.setProperty('--backgroundColor', lightTheme.backgroundColor);
+    root.style.setProperty('--textColor', lightTheme.textColor);
+    root.style.setProperty('--boxShadowColor', lightTheme.boxShadowColor);
+    root.style.setProperty('--lbBackgroundColor', lightTheme.lbBackgroundColor);
+    root.style.setProperty('--winBannerBackground', lightTheme.winBannerBackground);
+    root.style.setProperty('--pink', lightTheme.pink);
+    root.style.setProperty('--orange', lightTheme.orange);
+    root.style.setProperty('--blue', lightTheme.blue);
+    let buttons = document.getElementsByTagName("BUTTON");
+    for(let index = 0; index < buttons.length; index++){
+        buttons[index].style.borderRadius = '0px';
+    }
+    userNameBtn.style.borderRadius = '0px';
+}
+
+themeBtn.addEventListener('click', showDarkTheme);
+
 document.onreadystatechange = () =>{
     if(document.readyState === "complete"){
         hideLoading();
         getLeaderboard();
+        themeBtnAni.playSegments([25,30], true);
     }
   }
