@@ -12,9 +12,9 @@
     --backgroundColor: white;
     --textColor: dimgrey;
     --boxShadowColor: grey;
-    --lbFirstColor: #fcc875;
-    --lbSecondColor: #fa87b1;
-    --lbThirdColor: #a8e0f7;
+    --lbFirstColor: #fcc875d8;
+    --lbSecondColor: #fa87b1d0;
+    --lbThirdColor: #a8e1f7d7;
     --lbBackgroundColor: rgba(255,255,255,0.8);
     --winBannerBackground: white;
 }
