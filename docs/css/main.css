@@ -253,6 +253,7 @@ section{
     width: 100vw;
     height: auto;
     margin-top: 20vh;
+    padding-top: 5px;
 }
 .lb-content > p{
     padding-top: 20vh;
