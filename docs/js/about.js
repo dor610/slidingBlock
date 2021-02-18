@@ -7,15 +7,19 @@ const aboutTGTitle = document.getElementById('about-tg-title');
 const aboutTGContent = document.getElementById('about-tg-content');
 
 let aboutPage = 'first';
+let touchStart = null;
+let touchEnd = null;
 
 const openAboutSection = () =>{
 
     document.addEventListener('wheel', aboutScrollHandle);
+    window.addEventListener('touchstart', touchStartTracking);
+    window.addEventListener('touchend', touchEndTracking);
 
     showLoading();
-    welcomeSection.classList.add('hide-v', 'hide-o');
+    welcomeSection.classList.add('hide-d');
     setTimeout(() => {
-       about.classList.remove('hide-o', 'hide-v');
+       about.classList.remove('hide-d');
        hideLoading(true);
        logo.addEventListener('click', backToHomeFromAbout);
        logo.style.cursor = 'pointer';
@@ -79,48 +83,50 @@ const aboutScrollHandle = (event) =>{
     }, 500);
 }
 
-let touchStart = null;
-let touchEnd = null;
 
-window.addEventListener('touchstart', function(event) {
+
+const touchStartTracking = () =>{
     touchStart = event.changedTouches[0];
-});
+}
 
-window.addEventListener('touchend', function(event) {
+const touchEndTracking = (event) =>{
     switch (aboutPage) {
-      case 'first':
-          aboutPage = 'second';
-        touchEnd = event.changedTouches[0];
-        if(touchEnd.screenY - touchStart.screenY < 0)
-        {
-            console.log('scrolling down');
-            showAboutTG();
-        }
-        break;
-      default:
-          aboutPage = 'first';
-        touchEnd = event.changedTouches[0];
-        if(touchEnd.screenY - touchStart.screenY > 0)
-        {
-            console.log('scrolling up');
-            showAboutSBP();
-        }
-    }
-  });
+        case 'first':
+            aboutPage = 'second';
+          touchEnd = event.changedTouches[0];
+          if(touchEnd.screenY - touchStart.screenY < 0)
+          {
+              console.log('scrolling down');
+              showAboutTG();
+          }
+          break;
+        default:
+            aboutPage = 'first';
+          touchEnd = event.changedTouches[0];
+          if(touchEnd.screenY - touchStart.screenY > 0)
+          {
+              console.log('scrolling up');
+              showAboutSBP();
+          }
+      }
+}
 
   const backToHomeFromAbout = () =>{
       if(logo.classList.contains('about-logo'))
         logo.classList.remove('about-logo');
       logo.removeEventListener('click', backToHomeFromAbout);
+      document.removeEventListener('wheel', aboutScrollHandle);
+      window.removeEventListener('touchstart', touchStartTracking);
+      window.removeEventListener('touchend', touchEndTracking);
       logo.style.cursor = 'default';
       showLoading();
       about.classList.remove('show-tg');
-      about.classList.add('hide-v', 'hide-o');
+      about.classList.add('hide-d');
       touchEnd = null;
       touchStart = null;
       aboutPage = 'first';
       setTimeout(() => {
-          welcomeSection.classList.remove('hide-o', 'hide-v');
+          welcomeSection.classList.remove('hide-d');
           hideLoading();
       }, 1000);
   }

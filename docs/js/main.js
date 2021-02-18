@@ -209,6 +209,7 @@ function check(){
 }
 
 const showDarkTheme = () =>{
+    document.cookie = 'theme=dark; max-age=86400';
     themeBtn.removeEventListener('click', showDarkTheme);
     themeBtn.addEventListener('click', hideDarkTheme);
     themeBtnAni.playSegments([25,5], true);
@@ -228,6 +229,7 @@ const showDarkTheme = () =>{
 }
 
 const hideDarkTheme = () =>{
+    document.cookie = 'theme=light; max-age=86400';
     themeBtn.removeEventListener('click', hideDarkTheme);
     themeBtn.addEventListener('click', showDarkTheme);
     themeBtnAni.playSegments([5,25], true);
@@ -248,10 +250,35 @@ const hideDarkTheme = () =>{
 
 themeBtn.addEventListener('click', showDarkTheme);
 
+const getCookie = (cookieName) =>{
+    let cookies = document.cookie;
+    let cookiePosition = cookies.indexOf(cookieName);
+    let cookieValue = null;
+    if(cookiePosition !== -1){
+        cookieValue = cookies.slice(cookies.indexOf('=', cookiePosition) + 1, (cookies.indexOf(';', cookiePosition) === -1)? cookies.length: cookies.indexOf(';', cookiePosition) + 1);
+    }
+    return cookieValue;
+}
+
+const themeCheck = () =>{
+    let themeCode = getCookie('theme');
+    switch (themeCode) {
+        case 'dark':
+                showDarkTheme();
+            break;
+        default:
+                hideDarkTheme();
+            break;
+    }
+}
+
+const userNameCheck = () =>{
+    let uName = getCookie('userName');
+}
 document.onreadystatechange = () =>{
     if(document.readyState === "complete"){
+        themeCheck();
         hideLoading();
         getLeaderboard();
-        themeBtnAni.playSegments([25,30], true);
     }
   }

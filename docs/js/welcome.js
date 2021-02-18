@@ -15,11 +15,11 @@ function getUserName(){
     userNameValue = userName.value;
     if(userNameValue){
         showLoading();
-        playBtn.classList.remove('hide-o', 'hide-v', 'hide-d');
-        scorebtn.classList.remove('hide-o', 'hide-v', 'hide-d');
-        aboutBtn.classList.remove('hide-o', 'hide-v', 'hide-d');
+        playBtn.classList.remove('hide-d');
+        scorebtn.classList.remove('hide-d');
+        aboutBtn.classList.remove('hide-d');
         setTimeout(() =>{
-            gettingUserName.classList.add('hide-o', 'hide-v');
+            gettingUserName.classList.add('hide-d');
             welcomeLabel.innerHTML = welcomeLabel.innerHTML + ', '+userNameValue;
         },1000);
         setTimeout(() =>{
@@ -99,8 +99,7 @@ const showLoading = () =>{
 
 const playGame = () =>{
     showLoading();
-    console.log('hihihih');
-    game.classList.remove('hide-v','hide-o');
+    game.classList.remove('hide-d');
     create();
 }
 
@@ -116,7 +115,7 @@ const backToHomeFromGame = () =>{
     blocks = [];
     clock.classList.add('hide-o', 'hide-v');
     moves.classList.add('hide-o', 'hide-v');
-    game.classList.add('hide-v', 'hide-o');
+    game.classList.add('hide-d');
     hideWinBanner();
     setTimeout(() => {
         clock.classList.remove('win-clock');
@@ -126,7 +125,7 @@ const backToHomeFromGame = () =>{
 
     showLoading();
     setTimeout(() => {
-        welcomeSection.classList.remove('hide-o', 'hide-v');
+        welcomeSection.classList.remove('hide-d');
         container.classList.remove('hide-o');
     }, 1000);
 
@@ -137,5 +136,5 @@ const backToHomeFromGame = () =>{
 
 playBtn.addEventListener('click', () =>{
     playGame();
-    welcomeSection.classList.add('hide-o', 'hide-v');
+    welcomeSection.classList.add('hide-d');
 });
