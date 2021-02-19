@@ -36,3 +36,13 @@ let themeBtnAni = lottie.loadAnimation({
     autoplay: false,
     path: 'js/themeBtn.json'
 });
+
+const replayBtn = document.getElementById('replay-btn');
+
+let replayBtnAni = lottie.loadAnimation({
+    container: replayBtn,
+    renderer: 'svg',
+    loop: false,
+    autoplay: false,
+    path: 'js/replayBtn.json'
+})

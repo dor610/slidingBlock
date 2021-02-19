@@ -10,7 +10,7 @@
     --orange: #fbb03b;
     --blue: #87ceeb;
     --backgroundColor: white;
-    --textColor: dimgrey;
+    --textColor: #696969;
     --boxShadowColor: grey;
     --lbFirstColor: #fcc875d8;
     --lbSecondColor: #fa87b1d0;
@@ -58,7 +58,7 @@ section{
     position: absolute;    
     top: 2.5vmin;
     color: var(--textColor);
-    box-shadow: 0 0 5px var(--boxShadowColor);
+    box-shadow: 0 0 5px var(--boxShadowColor) ;
     border-radius: 1vw;
     text-align: center;
     font-size: 5vmin;
@@ -73,6 +73,21 @@ section{
 }
 .moves{
     right: calc(50vw - 25vmin);
+}
+
+.replay-btn{
+    position: absolute;
+    z-index: 9;
+    width: 10vmin;
+    height: 10vmin;
+    top: calc(50vh + 20vmin);
+    right: calc(50vw - 13vmin);
+    transition: 0.3s ease-in;
+}
+
+.replay-btn:hover{
+    transform: scale(1.1,1.1);
+    cursor: pointer;
 }
 
 .win-clock, .win-moves{
@@ -97,7 +112,7 @@ section{
     height: 19vmin;
     position: absolute;
     margin: 1vmin;
-    box-shadow: 0 0 5px var(--boxShadowColor);
+    box-shadow: 0 0 5px var(--boxShadowColor) ;
     border-radius: 3%;
     font-size: 5vmin;
     text-align: center;
@@ -228,7 +243,7 @@ section{
     top: 0;
     z-index: 1;
     background-color: var(--lbBackgroundColor);
-    box-shadow: 0 0 5px var(--boxShadowColor);
+    border-bottom: 1px solid var(--boxShadowColor) ;
     transition: 0.5s ease-in;
 }
 .lb-title p{
@@ -299,17 +314,38 @@ section{
 
 .pink-color-block{
     color: var(--pink);
-    box-shadow: 0 0 5px var(--pink);
+    box-shadow: 0 0 5px var(--pink) ;
 }
 
 .blue-color-block{
     color: var(--blue);
-    box-shadow: 0 0 5px var(--blue);
+    box-shadow: 0 0 5px var(--blue) ;
 }
 
 .orange-color-block{
     color: var(--orange);
     box-shadow: 0 0 5px var(--orange);
+}
+
+.dark-theme-btn{
+    box-shadow: none;
+    border-bottom: 1px solid var(--boxShadowColor); 
+    transform: scale(1,1);
+}
+
+.pink-color-dark-theme{
+    border-bottom: 1px solid var(--pink);
+    color: var(--pink);
+}
+
+.orange-color-dark-theme{
+    border-bottom: 1px solid var(--orange);
+    color: var(--orange);
+}
+
+.blue-color-dark-theme{
+    border-bottom: 1px solid var(--blue);
+    color: var(--blue);
 }
 
 .hide-d{
@@ -346,6 +382,22 @@ section{
 
     .container{
         margin-top: calc(50vh - 40vmin);
+    }
+
+    .block{
+        box-shadow: 0 0 3px var(--boxShadowColor);
+    }
+
+    .blue-color-block{
+        box-shadow: 0 0 3px var(--blue);
+    }
+
+    .pink-color-block{
+        box-shadow: 0 0 3px var(--pink);
+    }
+
+    .orange-color-block{
+        box-shadow: 0 0 3px var(--orange);
     }
 }
 

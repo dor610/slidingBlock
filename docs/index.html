@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SlidingBlock</title>
-    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/welcome.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/about.css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
@@ -17,6 +17,14 @@
     <div id="loading-background" class="loading-background"></div>
     <section id="welcome" class="welcome">
         <div id="welcome-label" class="welcome-label">Welcome</div>
+        <div id="change-user-name" class="change-user-name hide-d" title="Change your name">
+            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 34.5 117.5">
+                <rect class="pencil-icon" x="0.5" y="13" width="15" height="78" />
+                <rect class="pencil-icon" x="18.5" y="13" width="15" height="78" />
+                <polygon class="pencil-icon" points="33 94.5 17 117.5 0 94.5 33 94.5" />
+                <rect class="pencil-icon" x="0.5" width="34" height="10" />
+            </svg>
+        </div>
         <div id="getting-user-name" class="getting-user-name">
             <label id="user-name-label" class="user-name-label">Enter Your Name</label>
             <input id="user-name" class="user-name" type="text" autocomplete="off" placeholder=" ">
@@ -31,6 +39,7 @@
             <div id="clock" class="clock hide-o hide-v" title="Time">00:00</div>
             <div id="moves" class="moves hide-o hide-v" title="Moves">0</div>
         </div>
+        <div id="replay-btn" class="replay-btn hide-o hide-v scale-ani" title="Play again!"></div>
         <div id="container" class="container"></div>
     </section>
     <section id="leaderboard" class="leaderboard hide-d">

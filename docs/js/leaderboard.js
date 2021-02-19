@@ -90,7 +90,7 @@ const setLeaderboard = () =>{
         if(xhttp.readyState === 4 && xhttp.status === 200)
             getLeaderboard();
     }
-    xhttp.send('userName='+userNameValue+'&time='+secs+'&moves='+move);
+    xhttp.send('userName='+user.userNameValue+'&time='+user.time+'&moves='+user.move);
 }
 
 const showLeaderboard = () =>{

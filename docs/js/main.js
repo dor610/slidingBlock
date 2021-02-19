@@ -1,14 +1,21 @@
-let blocks = [];
-let move = 0;
-let secs = 0;
-let count = '';
-let userNameValue = '';
 let mainColor = '';
 let winBanner = document.getElementById('win-banner');
+let themeCode = 'light';
 const container = document.getElementById('container');
 const clock = document.getElementById('clock');
 const moves = document.getElementById('moves');
 const root = document.querySelector(':root');
+
+const user = {
+    move: 0,
+    time: 0,
+    userNameValue: ''
+}
+
+const game = {
+    blocks: [],
+    timeCounting: 0
+}
 
 const darkTheme = {
     backgroundColor: '#121616',
@@ -48,7 +55,7 @@ function create(){
         if(!numString.includes('-'+arr[randNum]+'-')){
             numString = numString+'-'+arr[randNum]+'-';
             //console.log(numString);
-            blocks.push(arr[randNum]);
+            game.blocks.push(arr[randNum]);
 
             let block = document.createElement('div');
             block.classList.add('block');
@@ -65,8 +72,8 @@ function create(){
         }
         
     }
-    blocks.push(15);
-    moves.innerHTML = move;
+    game.blocks.push(15);
+    moves.innerHTML = user.move;
     setTimeout(() =>{
         hideLoading(true);
         logo.addEventListener('click', backToHomeFromGame);
@@ -122,8 +129,8 @@ function clickHandle(){
     //console.log('------------------------------------------------------------');
     //console.log('value: '+value+' type: '+typeof value);
 
-    let index = blocks.indexOf(value);
-    let emptyBlock = blocks.indexOf(15);
+    let index = game.blocks.indexOf(value);
+    let emptyBlock = game.blocks.indexOf(15);
     //console.log('index: '+index +' type: '+typeof index);
     //console.log('emptyBlock: '+emptyBlock +' type: '+typeof emptyBlock);
 
@@ -142,7 +149,7 @@ function clickHandle(){
     let isWin = check();
     if(isWin){
         container.classList.add('preparing');
-        clearInterval(count);
+        clearInterval(game.timeCounting);
         showWinBanner();
         setLeaderboard();
         setTimeout(() =>{
@@ -150,13 +157,16 @@ function clickHandle(){
             clock.classList.add('scale-ani');
             moves.classList.add('scale-ani');
             container.classList.add('hide-o');
+            replayBtnHoverHandle();
         }, 500);
         setTimeout(() => {
             logo.classList.add('win-logo');
             clock.classList.add('win-clock');
             moves.classList.add('win-moves');
+            replayBtn.classList.remove('hide-o', 'hide-v');
         }, 2000);
         setTimeout(()=>{
+            replayBtn.classList.remove('scale-ani');
             logo.classList.remove('scale-ani');
             clock.classList.remove('scale-ani');
             moves.classList.remove('scale-ani');
@@ -168,54 +178,57 @@ function switchBlock(blockA, aIndex, bIndex){
    // console.log('can switch');
     blockA.classList.remove('block-'+(aIndex+1));
     blockA.classList.add('block-'+(bIndex+1));
-    let c = blocks[aIndex];
-    blocks[aIndex] = blocks[bIndex];
-    blocks[bIndex] = c;
+    let c = game.blocks[aIndex];
+    game.blocks[aIndex] = game.blocks[bIndex];
+    game.blocks[bIndex] = c;
 
-    move++;
-    moves.innerHTML = move;
+    user.move++;
+    moves.innerHTML = user.move;
 }
 
 function timeCount(){
-    count = setInterval(() => {
+    game.timeCounting = setInterval(() => {
         let min = 0;
         let sec = 0;
-        let time = '';
-        secs++;
-        min = Math.floor(secs/60);
-        sec = secs - min*60;
-        if(min < 10) time += '0'+min+':';
-        else time += min+':';
-        if(sec < 10) time += '0'+sec;
-        else time += sec;
-        clock.innerHTML = time;
+        let timeStr = '';
+        user.time++;
+        min = Math.floor(user.time/60);
+        sec = user.time - min*60;
+        if(min < 10) timeStr += '0'+min+':';
+        else timeStr += min+':';
+        if(sec < 10) timeStr += '0'+sec;
+        else timeStr += sec;
+        clock.innerHTML = timeStr;
     }, 1000);
 }
 
 function check(){
     let isWin = 'true';
-    for (let index = 0; index < blocks.length-1; index++) {
+    for (let index = 0; index < game.blocks.length-1; index++) {
         let element = document.getElementById('block-'+index);
         
-        if(blocks[index] === index)
+        if(game.blocks[index] === index)
             element.classList.add(mainColor+'-color-block');
         else{
             element.classList.contains(mainColor+'-color-block')? element.classList.remove(mainColor+'-color-block'): console.log();
         }
-        if(blocks[index] > blocks[index + 1]) isWin = false;
+        if(game.blocks[index] > game.blocks[index + 1]) isWin = false;
     }
 
     return isWin;
 }
 
 const showDarkTheme = (firstCheck) =>{
+    themeCode = 'dark';
     document.cookie = 'theme=dark; max-age=86400';
     themeBtn.removeEventListener('click', showDarkTheme);
     themeBtn.addEventListener('click', hideDarkTheme);
-    if(firstCheck)
+    if(firstCheck === true){
+        console.log('wait for 1000');
         setTimeout(() =>{
             themeBtnAni.playSegments([25,5], true);
         },1000)
+    }
     else themeBtnAni.playSegments([25,5], true);
     root.style.setProperty('--backgroundColor', darkTheme.backgroundColor);
     root.style.setProperty('--textColor', darkTheme.textColor);
@@ -227,12 +240,13 @@ const showDarkTheme = (firstCheck) =>{
     root.style.setProperty('--blue', darkTheme.blue);
     let buttons = document.getElementsByTagName("BUTTON");
     for(let index = 0; index < buttons.length; index++){
-        buttons[index].style.borderRadius = '10px';
+        buttons[index].classList.add('dark-theme-btn');
     }
     userNameBtn.style.borderRadius = '10px';
 }
 
 const hideDarkTheme = () =>{
+    themeCode = 'light';
     document.cookie = 'theme=light; max-age=86400';
     themeBtn.removeEventListener('click', hideDarkTheme);
     themeBtn.addEventListener('click', showDarkTheme);
@@ -247,7 +261,7 @@ const hideDarkTheme = () =>{
     root.style.setProperty('--blue', lightTheme.blue);
     let buttons = document.getElementsByTagName("BUTTON");
     for(let index = 0; index < buttons.length; index++){
-        buttons[index].style.borderRadius = '0px';
+        buttons[index].classList.remove('dark-theme-btn');
     }
     userNameBtn.style.borderRadius = '0px';
 }
@@ -259,16 +273,16 @@ const getCookie = (cookieName) =>{
     let cookiePosition = cookies.indexOf(cookieName);
     let cookieValue = null;
     if(cookiePosition !== -1){
-        cookieValue = cookies.slice(cookies.indexOf('=', cookiePosition) + 1, (cookies.indexOf(';', cookiePosition) === -1)? cookies.length: cookies.indexOf(';', cookiePosition) + 1);
+        cookieValue = cookies.slice(cookies.indexOf('=', cookiePosition) + 1, (cookies.indexOf(';', cookiePosition) === -1)? cookies.length: cookies.indexOf(';', cookiePosition));
     }
     return cookieValue;
 }
 
 const themeCheck = () =>{
-    let themeCode = getCookie('theme');
+    themeCode = getCookie('theme');
     switch (themeCode) {
         case 'dark':
-                showDarkTheme();
+                showDarkTheme(true);
             break;
         default:
                 hideDarkTheme();
@@ -278,10 +292,21 @@ const themeCheck = () =>{
 
 const userNameCheck = () =>{
     let uName = getCookie('userName');
+    user.userNameValue = uName;
+    document.cookie = 'userName='+uName+"; max-age=84000";
+    if(uName){
+        playBtn.classList.remove('hide-d');
+        scorebtn.classList.remove('hide-d');
+        aboutBtn.classList.remove('hide-d');
+        gettingUserName.classList.add('hide-d');
+        welcomeLabel.innerHTML = welcomeLabel.innerHTML + ', '+user.userNameValue;
+        changeUserNameBtn.classList.remove('hide-d');
+    }
 }
 document.onreadystatechange = () =>{
     if(document.readyState === "complete"){
-        themeCheck(true);
+        themeCheck();
+        userNameCheck();
         hideLoading();
         getLeaderboard();
     }
