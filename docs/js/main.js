@@ -208,11 +208,15 @@ function check(){
     return isWin;
 }
 
-const showDarkTheme = () =>{
+const showDarkTheme = (firstCheck) =>{
     document.cookie = 'theme=dark; max-age=86400';
     themeBtn.removeEventListener('click', showDarkTheme);
     themeBtn.addEventListener('click', hideDarkTheme);
-    themeBtnAni.playSegments([25,5], true);
+    if(firstCheck)
+        setTimeout(() =>{
+            themeBtnAni.playSegments([25,5], true);
+        },1000)
+    else themeBtnAni.playSegments([25,5], true);
     root.style.setProperty('--backgroundColor', darkTheme.backgroundColor);
     root.style.setProperty('--textColor', darkTheme.textColor);
     root.style.setProperty('--boxShadowColor', darkTheme.boxShadowColor);
@@ -277,7 +281,7 @@ const userNameCheck = () =>{
 }
 document.onreadystatechange = () =>{
     if(document.readyState === "complete"){
-        themeCheck();
+        themeCheck(true);
         hideLoading();
         getLeaderboard();
     }
