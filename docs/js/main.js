@@ -242,7 +242,6 @@ const showDarkTheme = (firstCheck) =>{
     for(let index = 0; index < buttons.length; index++){
         buttons[index].classList.add('dark-theme-btn');
     }
-    userNameBtn.style.borderRadius = '10px';
 }
 
 const hideDarkTheme = () =>{
@@ -263,7 +262,6 @@ const hideDarkTheme = () =>{
     for(let index = 0; index < buttons.length; index++){
         buttons[index].classList.remove('dark-theme-btn');
     }
-    userNameBtn.style.borderRadius = '0px';
 }
 
 themeBtn.addEventListener('click', showDarkTheme);

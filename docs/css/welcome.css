@@ -10,7 +10,7 @@
     font-size: 3vmin;
 }
 
-.play-btn, .score-btn, .about-btn{
+.play-btn, .score-btn, .about-btn, .user-name-btn{
     outline: none;
     border: none;
     display: block;
@@ -63,7 +63,7 @@
 
 .logo{
     position: absolute;
-    height: 20min;
+    height: 20vmin;
     width: 20vmin;
     top: 10vh;
     left: calc(50vw - 10vmin);
@@ -110,7 +110,7 @@
 
 .user-name-label{
     position: absolute;
-    top: 51vh;
+    top: 51.5vh;
     width: 100vw;
     text-align: center;
     color: var(--textColor);
@@ -121,7 +121,7 @@
 .user-name{
     position: relative;
     width: 50vmin;
-    height: 50px;
+    height: 6vh;
     border: none;
     box-shadow: 0 0 5px var(--boxShadowColor);
     color: var(--textColor);
@@ -135,17 +135,10 @@
 }
 
 .user-name-btn{
-    position: relative;
-    width: 40vmin;
-    height: 50px;
-    background-color: transparent;
+    position: absolute;
     top: 55vh;
-    line-height: 50px;
     text-align: center;
-    left: calc(50vw - 20vmin);
-    color: var(--textColor);
-    box-shadow: 0 0 5px var(--boxShadowColor) ;
-    transition: 0.1s ease-in;
+    left: calc(50vw - 25vmin);
 }
 
 .no-transition{
@@ -212,4 +205,8 @@
 
 .move-top{
     top: 45vh;
+}
+
+@media screen and (max-width: 700px){
+    
 }
