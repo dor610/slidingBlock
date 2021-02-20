@@ -1,4 +1,4 @@
-let url = 'https://slidingblock.herokuapp.com';
+let url = 'https://dorminigame.herokuapp.com';
 let minRank = '';
 const leaderboard = document.getElementById('leaderboard');
 const lbTitle = document.getElementById('lb-title');
@@ -68,7 +68,7 @@ const hideLeaderboardContent = () =>{
 
 const getLeaderboard = () =>{
     let xhttp = new XMLHttpRequest();
-    xhttp.open('GET', url+'/leaderboard', true);
+    xhttp.open('GET', url+'/slidingblock-leaderboard', true);
     xhttp.onreadystatechange = () =>{
         if(xhttp.readyState === 4 && xhttp.status === 200){
             let data = xhttp.response;
@@ -84,7 +84,7 @@ const getLeaderboard = () =>{
 
 const setLeaderboard = () =>{
     let xhttp = new XMLHttpRequest();
-    xhttp.open('POST', url+'/leaderboard', true);
+    xhttp.open('POST', url+'/slidingblock-leaderboard', true);
     xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     xhttp.onreadystatechange = () =>{
         if(xhttp.readyState === 4 && xhttp.status === 200)

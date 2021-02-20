@@ -377,7 +377,7 @@ section{
     }
 
     .clock, .moves{
-        top: calc(50vh - 60vmin)
+        top: calc(50vh + 6vmin)
     }
 
     .container{
