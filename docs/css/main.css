@@ -350,6 +350,7 @@ section{
 
 .hide-d{
     display: none;
+
 }
 
 .hide-v{
@@ -374,10 +375,6 @@ section{
     .dashboard{
         padding-left: 10vmin;
         padding-right: 10vmin;
-    }
-
-    .clock, .moves{
-        top: calc(50vh + 6vmin)
     }
 
     .container{
