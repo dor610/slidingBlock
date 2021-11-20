@@ -1,5 +1,5 @@
 let url = 'https://dorminigame.herokuapp.com';
-let minRank = '';
+let minRank = 0;
 const leaderboard = document.getElementById('leaderboard');
 const lbTitle = document.getElementById('lb-title');
 const lbContent = document.getElementById('lb-content');
